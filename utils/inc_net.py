@@ -7,6 +7,7 @@ from convs.ucir_cifar_resnet import resnet32 as cosine_resnet32
 from convs.ucir_resnet import resnet18 as cosine_resnet18
 from convs.ucir_resnet import resnet34 as cosine_resnet34
 from convs.ucir_resnet import resnet50 as cosine_resnet50
+from convs.point_net import PointNetFeat
 from convs.linears import SimpleLinear, SplitCosineLinear, CosineLinear
 
 
@@ -28,6 +29,8 @@ def get_convnet(convnet_type, pretrained=False):
         return cosine_resnet34(pretrained=pretrained)
     elif name == 'cosine_resnet50':
         return cosine_resnet50(pretrained=pretrained)
+    elif convnet_type == "pointnet":
+        return PointNetFeat()
     else:
         raise NotImplementedError('Unknown type {}'.format(convnet_type))
 

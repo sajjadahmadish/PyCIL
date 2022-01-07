@@ -1,4 +1,3 @@
-from models.coil import COIL
 from models.der import DER
 from models.ewc import EWC
 from models.finetune import Finetune
@@ -33,7 +32,5 @@ def get_model(model_name, args):
         return Replay(args)
     elif name == "gem":
         return GEM(args)
-    elif name == "coil":
-        return COIL(args)
     else:
         assert 0
