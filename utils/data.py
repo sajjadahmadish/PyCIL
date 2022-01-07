@@ -168,6 +168,7 @@ class TranslatePointcloud(object):
 
 
 class iModelNet40(iData):
+    use_path = None
     train_trsf = [TranslatePointcloud(1024)]
     test_trsf = [TranslatePointcloud(1024, False)]
     class_order = [2, 3, 4, 10, 14, 17, 19, 21, 22, 26, 27, 28, 29, 30, 31, 32, 33, 35, 36, 39, 5, 16, 23, 25, 37, 9,
