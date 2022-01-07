@@ -149,10 +149,15 @@ class DummyDataset(Dataset):
         return len(self.images)
 
     def __getitem__(self, idx):
-        if self.use_path:
-            image = self.trsf(pil_loader(self.images[idx]))
+
+        if self.use_path is not None:
+            if self.use_path:
+                image = self.trsf(pil_loader(self.images[idx]))
+            else:
+                image = self.trsf(Image.fromarray(self.images[idx]))
         else:
-            image = self.trsf(Image.fromarray(self.images[idx]))
+            image = self.trsf(self.images[idx])[0]
+
         label = self.labels[idx]
 
         return idx, image, label
